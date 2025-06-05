@@ -16,7 +16,6 @@ import {
 } from '@/components/ui/dialog';
 import {
   Github,
-  Twitter,
   Instagram,
   Linkedin,
   Download,
@@ -24,7 +23,7 @@ import {
   ChevronUp,
   Heart,
   ThumbsDown,
-  XIcon,
+  X,
   Sparkles,
   Play,
   ExternalLink,
@@ -92,11 +91,11 @@ export default function Portfolio() {
     [
       {
         name: 'Autodesk Certified Professional (AutoCAD)',
-        image: '/ACP AutoCAD Certification.jpeg?height=150&width=200',
+        image: '/ACP AutoCAD Certificate.jpeg?height=150&width=200',
       },
       {
         name: 'DELF A1',
-        image: '/DELF A1 Certification.jpeg?height=150&width=200',
+        image: '/DELF A1 Certificate.jpeg?height=150&width=200',
       },
     ],
   ];
@@ -509,13 +508,17 @@ export default function Portfolio() {
                 <button
                   onClick={() => scrollTrophyShelf('up')}
                   className='absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4 z-10 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all'
+                  tabIndex={0}
                 >
                   <ChevronUp className='h-6 w-6 text-slate-600' />
                 </button>
               )}
 
               {/* Trophy Shelf */}
-              <div className='bg-gradient-to-b from-amber-100 to-amber-200 rounded-2xl p-8 shadow-xl overflow-hidden'>
+              <div
+                className='bg-gradient-to-b from-amber-100 to-amber-200 rounded-2xl p-8 shadow-xl overflow-hidden max-h-[600px] overflow-y-auto'
+                style={{ scrollBehavior: 'auto' }} // disables smooth scroll for this container
+              >
                 {/* Only render 2 shelves at a time */}
                 {trophies
                   .slice(
@@ -555,6 +558,7 @@ export default function Portfolio() {
                 <button
                   onClick={() => scrollTrophyShelf('down')}
                   className='absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-4 z-10 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all'
+                  tabIndex={0}
                 >
                   <ChevronDown className='h-6 w-6 text-slate-600' />
                 </button>
@@ -641,7 +645,7 @@ export default function Portfolio() {
                         label: 'GitHub',
                       },
                       {
-                        icon: XIcon,
+                        icon: X,
                         href: 'https://x.com/emma_olunde',
                         label: 'Twitter',
                       },
