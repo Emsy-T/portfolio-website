@@ -56,12 +56,14 @@ export default function Portfolio() {
       description: 'A simple gradebook application for tracking student grades',
       tech: 'HTML, CSS, JavaScript',
       image: '/placeholder.svg?height=200&width=300',
+      link: 'https://github.com/emsy-T/gradebook-app',
     },
     {
       title: 'Project Two',
       description: 'Mobile application with cross-platform compatibility',
       tech: 'Flutter, Firebase, Dart',
       image: '/placeholder.svg?height=200&width=300',
+      link: '#',
     },
   ];
 
@@ -457,9 +459,19 @@ export default function Portfolio() {
                       <p className='text-slate-600 mb-4'>
                         {project.description}
                       </p>
-                      <Button className='bg-violet-600 hover:bg-violet-700 text-white text-sm'>
-                        View Project
-                        <ExternalLink className='h-4 w-4 ml-2' />
+                      <Button
+                        asChild
+                        className='bg-violet-600 hover:bg-violet-700 text-white text-sm'
+                      >
+                        <a
+                          href={project.link}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          tabIndex={-1}
+                        >
+                          View Project
+                          <ExternalLink className='h-4 w-4 ml-2' />
+                        </a>
                       </Button>
                     </CardContent>
                   </Card>
@@ -668,7 +680,8 @@ export default function Portfolio() {
           <div className='flex flex-col md:flex-row justify-between items-center'>
             <div className='mb-4 md:mb-0'>
               <p className='text-slate-300'>
-                © 2024 Imoleayo Olunde. All rights reserved.
+                © {new Date().getFullYear()} Imoleayo Olunde. All rights
+                reserved.
               </p>
             </div>
             <div className='flex space-x-8'>
