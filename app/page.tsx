@@ -30,6 +30,7 @@ import {
   Mail,
   Menu,
 } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -134,7 +135,14 @@ export default function Portfolio() {
     setIsMenuOpen(false);
   };
 
-  const scrollTrophyShelf = (direction: 'up' | 'down') => {
+  const scrollTrophyShelf = (
+    direction: 'up' | 'down',
+    e?: React.MouseEvent
+  ) => {
+    if (e) {
+      e.preventDefault();
+      e.currentTarget.blur();
+    }
     if (
       direction === 'down' &&
       trophyShelfPage < trophies.length - TROPHY_SHELVES_PER_PAGE
@@ -479,11 +487,11 @@ export default function Portfolio() {
             </div>
 
             <div className='text-center'>
-              <a href='/projectspage'>
+              <Link href='/projectspage' passHref>
                 <Button className='bg-slate-800 hover:bg-slate-900 text-white px-8 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition-all'>
                   See More Projects
                 </Button>
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -506,9 +514,10 @@ export default function Portfolio() {
               {/* Up Arrow */}
               {trophyShelfPage > 0 && (
                 <button
-                  onClick={() => scrollTrophyShelf('up')}
+                  onClick={(e) => scrollTrophyShelf('up', e)}
                   className='absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4 z-10 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all'
                   tabIndex={0}
+                  type='button'
                 >
                   <ChevronUp className='h-6 w-6 text-slate-600' />
                 </button>
@@ -556,9 +565,10 @@ export default function Portfolio() {
               {/* Down Arrow */}
               {trophyShelfPage < trophies.length - TROPHY_SHELVES_PER_PAGE && (
                 <button
-                  onClick={() => scrollTrophyShelf('down')}
+                  onClick={(e) => scrollTrophyShelf('down', e)}
                   className='absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-4 z-10 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all'
                   tabIndex={0}
+                  type='button'
                 >
                   <ChevronDown className='h-6 w-6 text-slate-600' />
                 </button>
