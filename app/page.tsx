@@ -23,13 +23,13 @@ import {
   ChevronUp,
   Heart,
   ThumbsDown,
-  X,
   Sparkles,
   Play,
   ExternalLink,
   Mail,
   Menu,
 } from 'lucide-react';
+import { X as Twitter } from 'lucide-react'; // Import Twitter (X) icon with alias
 import Link from 'next/link';
 
 export default function Portfolio() {
@@ -487,7 +487,7 @@ export default function Portfolio() {
             </div>
 
             <div className='text-center'>
-              <Link href='/projectspage' passHref>
+              <Link href='/projectspage'>
                 <Button className='bg-slate-800 hover:bg-slate-900 text-white px-8 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition-all'>
                   See More Projects
                 </Button>
@@ -655,7 +655,7 @@ export default function Portfolio() {
                         label: 'GitHub',
                       },
                       {
-                        icon: X,
+                        icon: Twitter, // Use the aliased Twitter (X) icon here
                         href: 'https://x.com/emma_olunde',
                         label: 'Twitter',
                       },
