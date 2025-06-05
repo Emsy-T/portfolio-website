@@ -659,6 +659,8 @@ export default function Portfolio() {
                       <motion.a
                         key={index}
                         href={social.href}
+                        target='_blank'
+                        rel='noopener noreferrer'
                         whileHover={{ scale: 1.1, y: -2 }}
                         className='p-3 bg-slate-100 hover:bg-violet-100 rounded-full transition-all group'
                         aria-label={social.label}
