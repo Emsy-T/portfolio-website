@@ -28,8 +28,8 @@ import {
   ExternalLink,
   Mail,
   Menu,
-} from 'lucide-react';
-import { X as Twitter } from 'lucide-react'; // Import Twitter (X) icon with alias
+}
+import { Twitter } from 'lucide-react'; // Import Twitter (X) icon with alias
 import Link from 'next/link';
 
 export default function Portfolio() {
@@ -137,22 +137,24 @@ export default function Portfolio() {
   };
 
   const scrollTrophyShelf = (
-    direction: 'up' | 'down',
-    e?: React.MouseEvent
-  ) => {
-    if (e) {
-      e.preventDefault();
-      e.currentTarget.blur();
-    }
-    if (
-      direction === 'down' &&
-      trophyShelfPage < trophies.length - TROPHY_SHELVES_PER_PAGE
-    ) {
-      setTrophyShelfPage((prev) => prev + TROPHY_SHELVES_PER_PAGE);
-    } else if (direction === 'up' && trophyShelfPage > 0) {
-      setTrophyShelfPage((prev) => prev - TROPHY_SHELVES_PER_PAGE);
-    }
-  };
+  direction: 'up' | 'down',
+  e?: React.MouseEvent
+) => {
+  if (e) {
+    e.preventDefault();        // stop default scroll behavior
+    e.stopPropagation();       // prevent bubbling up
+    e.currentTarget.blur();    // optional: remove focus from button
+  }
+
+  if (
+    direction === 'down' &&
+    trophyShelfPage < trophies.length - TROPHY_SHELVES_PER_PAGE
+  ) {
+    setTrophyShelfPage((prev) => prev + TROPHY_SHELVES_PER_PAGE);
+  } else if (direction === 'up' && trophyShelfPage > 0) {
+    setTrophyShelfPage((prev) => prev - TROPHY_SHELVES_PER_PAGE);
+  }
+};
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-slate-50 to-blue-50'>
@@ -257,7 +259,7 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id='about' className='pt-8 pb-16 px-4 sm:px-6 lg:px-8'>
+      <section id='about' className='pt-12 pb-16 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-6xl mx-auto'>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -521,6 +523,7 @@ export default function Portfolio() {
               {trophyShelfPage > 0 && (
                 <button
                   onClick={(e) => scrollTrophyShelf('up', e)}
+                  type='button'
                   className='absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4 z-10 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all'
                   tabIndex={0}
                   type='button'
