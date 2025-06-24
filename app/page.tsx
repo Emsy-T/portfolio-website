@@ -137,24 +137,24 @@ export default function Portfolio() {
   };
 
   const scrollTrophyShelf = (
-  direction: 'up' | 'down',
-  e?: React.MouseEvent
-) => {
-  if (e) {
-    e.preventDefault();        // stop default scroll behavior
-    e.stopPropagation();       // prevent bubbling up
-    e.currentTarget.blur();    // optional: remove focus from button
-  }
+    direction: 'up' | 'down',
+    e?: React.MouseEvent
+  ) => {
+    if (e) {
+      e.preventDefault(); // stop default scroll behavior
+      e.stopPropagation(); // prevent bubbling up
+      e.currentTarget.blur(); // optional: remove focus from button
+    }
 
-  if (
-    direction === 'down' &&
-    trophyShelfPage < trophies.length - TROPHY_SHELVES_PER_PAGE
-  ) {
-    setTrophyShelfPage((prev) => prev + TROPHY_SHELVES_PER_PAGE);
-  } else if (direction === 'up' && trophyShelfPage > 0) {
-    setTrophyShelfPage((prev) => prev - TROPHY_SHELVES_PER_PAGE);
-  }
-};
+    if (
+      direction === 'down' &&
+      trophyShelfPage < trophies.length - TROPHY_SHELVES_PER_PAGE
+    ) {
+      setTrophyShelfPage((prev) => prev + TROPHY_SHELVES_PER_PAGE);
+    } else if (direction === 'up' && trophyShelfPage > 0) {
+      setTrophyShelfPage((prev) => prev - TROPHY_SHELVES_PER_PAGE);
+    }
+  };
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-slate-50 to-blue-50'>
@@ -556,11 +556,23 @@ export default function Portfolio() {
                             whileHover={{ scale: 1.05, rotate: 2 }}
                             className='bg-white rounded-lg p-4 shadow-lg hover:shadow-xl transition-all cursor-pointer'
                           >
-                            <img
-                              src={trophy.image || '/placeholder.svg'}
-                              alt={trophy.name}
-                              className='w-full h-32 object-cover rounded-lg'
-                            />
+                            <Dialog>
+                              <DialogTrigger asChild>
+                                <img
+                                  src={trophy.image || '/placeholder.svg'}
+                                  alt={trophy.name}
+                                  className='w-full h-32 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-all'
+                                />
+                              </DialogTrigger>
+                              <DialogContent className='p-0 max-w-5xl bg-transparent shadow-none border-none'>
+                                <img
+                                  src={trophy.image || '/placeholder.svg'}
+                                  alt={trophy.name}
+                                  className='w-full h-auto object-contain rounded-lg'
+                                />
+                              </DialogContent>
+                            </Dialog>
+
                             <p className='text-center text-sm font-medium text-slate-700 mt-2'>
                               {trophy.name}
                             </p>
