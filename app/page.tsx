@@ -165,7 +165,7 @@ export default function Portfolio() {
               animate={{ opacity: 1, x: 0 }}
               className='font-bold text-xl text-slate-800'
             >
-              Imoleayo
+              Imoleayo Olunde
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -232,7 +232,7 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section className='pt-24 pb-2 px-4 sm:px-6 lg:px-8'>
+      <section className='pt-28 pb-2 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-6xl mx-auto text-center'>
           <motion.div
             style={{ y: heroY }}
