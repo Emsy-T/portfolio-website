@@ -232,7 +232,7 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section className='pt-24 pb-5 px-4 sm:px-6 lg:px-8'>
+      <section className='pt-24 pb-2 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-6xl mx-auto text-center'>
           <motion.div
             style={{ y: heroY }}
@@ -257,7 +257,7 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id='about' className='py-16 px-4 sm:px-6 lg:px-8'>
+      <section id='about' className='pt-8 pb-16 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-6xl mx-auto'>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
