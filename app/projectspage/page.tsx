@@ -42,7 +42,7 @@ export default function ProjectsPage() {
               style={{ cursor: 'pointer' }}
               onClick={() => router.push('/')}
             >
-              Imoleayo
+              Imoleayo Olunde
             </motion.div>
             <div className='hidden md:flex items-center space-x-8'>
               <button

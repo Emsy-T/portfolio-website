@@ -29,7 +29,7 @@ import {
   Mail,
   Menu,
 } from 'lucide-react';
-import { X as Twitter } from 'lucide-react'; // Import Twitter (X) icon with alias
+import { Twitter } from 'lucide-react'; // Import Twitter (X) icon with alias
 import Link from 'next/link';
 
 export default function Portfolio() {
@@ -59,8 +59,9 @@ export default function Portfolio() {
       link: 'https://github.com/emsy-T/gradebook-app',
     },
     {
-      title: 'Project Two',
-      description: 'Mobile application with cross-platform compatibility',
+      title: 'Booksy',
+      description:
+        'Mobile application that helps users manage their e-book library',
       tech: 'Flutter, Firebase, Dart',
       image: '/placeholder.svg?height=200&width=300',
       link: '#',
@@ -102,9 +103,9 @@ export default function Portfolio() {
   ];
 
   const likes = [
-    'Building solutions to personal and global problems',
-    'Learning new things on various topics from tech to business',
-    'Exploring my other passions like music and design',
+    'Building solutions for personal and global problems',
+    'Learning new things about various fields, from tech to business',
+    'Exploring my other passions like composing music and designing',
     'Reading books',
     'Watching YouTube videos',
     'Collaborating with people on various projects',
@@ -140,9 +141,11 @@ export default function Portfolio() {
     e?: React.MouseEvent
   ) => {
     if (e) {
-      e.preventDefault();
-      e.currentTarget.blur();
+      e.preventDefault(); // stop default scroll behavior
+      e.stopPropagation(); // prevent bubbling up
+      e.currentTarget.blur(); // optional: remove focus from button
     }
+
     if (
       direction === 'down' &&
       trophyShelfPage < trophies.length - TROPHY_SHELVES_PER_PAGE
@@ -164,7 +167,7 @@ export default function Portfolio() {
               animate={{ opacity: 1, x: 0 }}
               className='font-bold text-xl text-slate-800'
             >
-              Imoleayo
+              Imoleayo Olunde
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -231,7 +234,7 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section className='pt-24 pb-10 px-4 sm:px-6 lg:px-8'>
+      <section className='pt-28 pb-4 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-6xl mx-auto text-center'>
           <motion.div
             style={{ y: heroY }}
@@ -256,7 +259,7 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id='about' className='py-16 px-4 sm:px-6 lg:px-8'>
+      <section id='about' className='pt-12 pb-16 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-6xl mx-auto'>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -268,17 +271,6 @@ export default function Portfolio() {
               Get To Know Me
             </h2>
 
-            {/* Video Section */}
-            <div className='mb-16'>
-              <div className='relative bg-slate-200 rounded-2xl overflow-hidden shadow-xl max-w-4xl mx-auto aspect-video'>
-                <div className='absolute inset-0 flex items-center justify-center'>
-                  <Button className='bg-violet-600 hover:bg-violet-700 rounded-full p-4 shadow-lg'>
-                    <Play className='h-8 w-8 text-white ml-1' />
-                  </Button>
-                </div>
-              </div>
-            </div>
-
             {/* Backstory */}
             <div className='mb-16'>
               <h3 className='text-2xl font-semibold text-slate-800 mb-6'>
@@ -287,19 +279,35 @@ export default function Portfolio() {
               <Card className='bg-white shadow-lg border-0'>
                 <CardContent className='p-8'>
                   <p className='text-slate-600 leading-relaxed text-lg'>
-                    When I was 5, I got my first laptop. At age 8, I started
-                    learning how to develop apps and websites. And by the time I
-                    was 15, I got into university to study Software Engineering.
-                    I’ve followed a rather unusual path to get to where I am
-                    now. I skipped grades, did a bit of home-schooling, and got
-                    exposed to a lot of trainings and resources online. My
-                    parents went all out to make sure that I explored my passion
-                    for technology and along the way I picked up new passions
-                    like Music, Graphic Design, Writing, and even 3D Animation.
-                    Now, my mission is to develop solutions to all sorts of
-                    problems; small and big, and empower youths across the world
-                    with my story, showing them that nothing is impossible when
-                    they set their minds to it.
+                    I’m a 16-year-old software engineering student in Nigeria,
+                    currently in my third year of university. Thanks to my
+                    parents’ love and support, I started earning international
+                    certifications at age 8, skipped the 5th and 6th grades, and
+                    got into university at 15. I’ll even graduate before I turn
+                    18.
+                    <br />
+                    My journey hasn’t been typical. I was homeschooled during
+                    what should’ve been my 11th grade, I’ve overcome trauma, and
+                    faced emotional scars from a flawed school system—but I kept
+                    going. I’ve learned to grow in spite of challenges by
+                    shaping my mindset and pursuing my passions.
+                    <br />I have a lot of passions! I build apps, write music,
+                    design original characters, write stories, do a bit of 3D
+                    animation, and advocate for environmental sustainability as
+                    well as youth empowerment. I believe the biggest challenge
+                    youths face today is building the right mindset, and I want
+                    to change that through tech, innovation, and
+                    entrepreneurship.
+                    <br />
+                    Over the last three years, I’ve been active in Technovation.
+                    I competed in the Technovation Girls Challenge for the 2023
+                    and 2024 seasons—first with a team that struggled to
+                    communicate, and then with a global team of girls from the
+                    U.S. and India. Despite time zone challenges and personal
+                    doubts, we made it to the semifinals. That experience
+                    boosted my confidence as a leader and teammate. And this
+                    past year, I was a Technovation Student Ambassador,
+                    mentoring girls through the program.
                   </p>
                 </CardContent>
               </Card>
@@ -515,6 +523,7 @@ export default function Portfolio() {
               {trophyShelfPage > 0 && (
                 <button
                   onClick={(e) => scrollTrophyShelf('up', e)}
+                  type='button'
                   className='absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4 z-10 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all'
                   tabIndex={0}
                   type='button'
@@ -547,11 +556,23 @@ export default function Portfolio() {
                             whileHover={{ scale: 1.05, rotate: 2 }}
                             className='bg-white rounded-lg p-4 shadow-lg hover:shadow-xl transition-all cursor-pointer'
                           >
-                            <img
-                              src={trophy.image || '/placeholder.svg'}
-                              alt={trophy.name}
-                              className='w-full h-32 object-cover rounded-lg'
-                            />
+                            <Dialog>
+                              <DialogTrigger asChild>
+                                <img
+                                  src={trophy.image || '/placeholder.svg'}
+                                  alt={trophy.name}
+                                  className='w-full h-32 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-all'
+                                />
+                              </DialogTrigger>
+                              <DialogContent className='p-0 max-w-5xl bg-transparent shadow-none border-none'>
+                                <img
+                                  src={trophy.image || '/placeholder.svg'}
+                                  alt={trophy.name}
+                                  className='w-full h-auto object-contain rounded-lg'
+                                />
+                              </DialogContent>
+                            </Dialog>
+
                             <p className='text-center text-sm font-medium text-slate-700 mt-2'>
                               {trophy.name}
                             </p>
@@ -619,29 +640,35 @@ export default function Portfolio() {
             <div className='max-w-2xl mx-auto'>
               <Card className='bg-white shadow-xl border-0'>
                 <CardContent className='p-8'>
-                  <form className='space-y-6'>
-                    <div>
-                      <Input
-                        placeholder='Enter your email'
-                        type='email'
-                        className='w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 transition-all'
-                      />
-                    </div>
-                    <div>
-                      <Input
-                        placeholder='Subject'
-                        className='w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 transition-all'
-                      />
-                    </div>
-                    <div>
-                      <Textarea
-                        placeholder='Message'
-                        rows={5}
-                        className='w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 transition-all resize-none'
-                      />
-                    </div>
-                    <Button className='w-full bg-violet-600 hover:bg-violet-700 text-white py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all'>
-                      <Mail className='h-5 w-5 mr-2' />
+                  <form
+                    action='https://formspree.io/f/xblyzvaz'
+                    method='POST'
+                    className='space-y-6'
+                  >
+                    <Input
+                      name='email'
+                      type='email'
+                      placeholder='Enter your email'
+                      required
+                      className='w-full px-4 py-3 rounded-lg'
+                    />
+                    <Input
+                      name='subject'
+                      placeholder='Subject'
+                      required
+                      className='w-full px-4 py-3 rounded-lg'
+                    />
+                    <Textarea
+                      name='message'
+                      rows={5}
+                      placeholder='Message'
+                      required
+                      className='w-full px-4 py-3 rounded-lg resize-none'
+                    />
+                    <Button
+                      type='submit'
+                      className='w-full bg-violet-600 text-white'
+                    >
                       Send Message
                     </Button>
                   </form>
