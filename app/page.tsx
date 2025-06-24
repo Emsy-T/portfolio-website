@@ -495,7 +495,7 @@ export default function Portfolio() {
             </div>
 
             <div className='text-center'>
-              <Link href='/projectspage.tsx'>
+              <Link href='/projectspage'>
                 <Button className='bg-slate-800 hover:bg-slate-900 text-white px-8 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition-all'>
                   See More Projects
                 </Button>
