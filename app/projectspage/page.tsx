@@ -16,11 +16,12 @@ const projects = [
     link: 'https://github.com/emsy-T/gradebook-app', // <-- add your real link
   },
   {
-    title: 'Project Two',
-    description: 'Mobile application with cross-platform compatibility',
+    title: 'Booksy',
+    description:
+      'Mobile application that helps users manage their e-book library',
     tech: 'Flutter, Firebase, Dart',
     image: '/placeholder.svg?height=200&width=300',
-    link: '#', // <-- add your real link
+    link: 'https://github.com/Emsy-T/booksy', // <-- add your real link
   },
   // ...add more projects here
 ];

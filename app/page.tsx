@@ -64,7 +64,7 @@ export default function Portfolio() {
         'Mobile application that helps users manage their e-book library',
       tech: 'Flutter, Firebase, Dart',
       image: '/placeholder.svg?height=200&width=300',
-      link: '#',
+      link: 'https://github.com/Emsy-T/booksy',
     },
   ];
 
