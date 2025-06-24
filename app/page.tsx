@@ -232,7 +232,7 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section className='pt-28 pb-2 px-4 sm:px-6 lg:px-8'>
+      <section className='pt-28 pb-4 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-6xl mx-auto text-center'>
           <motion.div
             style={{ y: heroY }}
@@ -282,27 +282,30 @@ export default function Portfolio() {
                     parents’ love and support, I started earning international
                     certifications at age 8, skipped the 5th and 6th grades, and
                     got into university at 15. I’ll even graduate before I turn
-                    18. My journey hasn’t been typical. I was homeschooled
-                    during what should’ve been my 11th grade, I’ve overcome
-                    trauma, and faced emotional scars from a flawed school
-                    system—but I kept going. I’ve learned to grow in spite of
-                    challenges by shaping my mindset and pursuing my passions. I
-                    have a lot of passions! I build apps, write music, design
-                    original characters, write stories, do a bit of 3D
+                    18.
+                    <br />
+                    My journey hasn’t been typical. I was homeschooled during
+                    what should’ve been my 11th grade, I’ve overcome trauma, and
+                    faced emotional scars from a flawed school system—but I kept
+                    going. I’ve learned to grow in spite of challenges by
+                    shaping my mindset and pursuing my passions.
+                    <br />I have a lot of passions! I build apps, write music,
+                    design original characters, write stories, do a bit of 3D
                     animation, and advocate for environmental sustainability as
-                    well as a youth empowerment. I believe the biggest challenge
+                    well as youth empowerment. I believe the biggest challenge
                     youths face today is building the right mindset, and I want
-                    to change that through tech, creativity, and
-                    entrepreneurship. Over the last three years, I’ve been
-                    active in Technovation. I competed in the Technovation Girls
-                    Challenge for the 2023 and 2024 seasons—first with a team
-                    that struggled to communicate, and then with a global team
-                    of girls from the U.S. and India. Despite time zone
-                    challenges and personal doubts, we made it to the
-                    semifinals. That experience boosted my confidence as a
-                    leader and teammate. And this past year, I was a
-                    Technovation Student Ambassador, mentoring girls through the
-                    program.
+                    to change that through tech, innovation, and
+                    entrepreneurship.
+                    <br />
+                    Over the last three years, I’ve been active in Technovation.
+                    I competed in the Technovation Girls Challenge for the 2023
+                    and 2024 seasons—first with a team that struggled to
+                    communicate, and then with a global team of girls from the
+                    U.S. and India. Despite time zone challenges and personal
+                    doubts, we made it to the semifinals. That experience
+                    boosted my confidence as a leader and teammate. And this
+                    past year, I was a Technovation Student Ambassador,
+                    mentoring girls through the program.
                   </p>
                 </CardContent>
               </Card>
@@ -490,7 +493,7 @@ export default function Portfolio() {
             </div>
 
             <div className='text-center'>
-              <Link href='/projectspage'>
+              <Link href='/projectspage.tsx'>
                 <Button className='bg-slate-800 hover:bg-slate-900 text-white px-8 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition-all'>
                   See More Projects
                 </Button>
@@ -622,29 +625,35 @@ export default function Portfolio() {
             <div className='max-w-2xl mx-auto'>
               <Card className='bg-white shadow-xl border-0'>
                 <CardContent className='p-8'>
-                  <form className='space-y-6'>
-                    <div>
-                      <Input
-                        placeholder='Enter your email'
-                        type='email'
-                        className='w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 transition-all'
-                      />
-                    </div>
-                    <div>
-                      <Input
-                        placeholder='Subject'
-                        className='w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 transition-all'
-                      />
-                    </div>
-                    <div>
-                      <Textarea
-                        placeholder='Message'
-                        rows={5}
-                        className='w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 transition-all resize-none'
-                      />
-                    </div>
-                    <Button className='w-full bg-violet-600 hover:bg-violet-700 text-white py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all'>
-                      <Mail className='h-5 w-5 mr-2' />
+                  <form
+                    action='https://formspree.io/f/xblyzvaz'
+                    method='POST'
+                    className='space-y-6'
+                  >
+                    <Input
+                      name='email'
+                      type='email'
+                      placeholder='Enter your email'
+                      required
+                      className='w-full px-4 py-3 rounded-lg'
+                    />
+                    <Input
+                      name='subject'
+                      placeholder='Subject'
+                      required
+                      className='w-full px-4 py-3 rounded-lg'
+                    />
+                    <Textarea
+                      name='message'
+                      rows={5}
+                      placeholder='Message'
+                      required
+                      className='w-full px-4 py-3 rounded-lg resize-none'
+                    />
+                    <Button
+                      type='submit'
+                      className='w-full bg-violet-600 text-white'
+                    >
                       Send Message
                     </Button>
                   </form>
