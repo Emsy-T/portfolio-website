@@ -166,6 +166,8 @@ export default function Portfolio() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               className='font-bold text-xl text-slate-800'
+              style={{ cursor: 'pointer' }}
+              onClick={() => router.push('/')}
             >
               Imoleayo Olunde
             </motion.div>
