@@ -28,7 +28,7 @@ import {
   ExternalLink,
   Mail,
   Menu,
-}
+} from 'lucide-react';
 import { Twitter } from 'lucide-react'; // Import Twitter (X) icon with alias
 import Link from 'next/link';
 
