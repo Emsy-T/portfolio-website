@@ -101,10 +101,14 @@ export default function Portfolio() {
       },
       {
         name: 'GitHub Foundations',
-        image: '/GitHubFoundations_Cert.jpeg?height=150
-       {
-         name: 'GitHub Foundations',
-         image: '/GitHubFoundations_Cert.jpeg?height=150&width=200',     }new, things about various fields, from tech to business',
+        image: '/GitHubFoundations_Cert.jpeg?height=150&width=200',
+      },
+    ],
+  ];
+
+  const likes = [
+    'Building solutions for personal and global problems',
+    'Learning new things about various fields, from tech to business',
     'Exploring my other passions like composing music and designing',
     'Reading books',
     'Watching YouTube videos',
@@ -545,47 +549,44 @@ export default function Portfolio() {
                     trophyShelfPage,
                     trophyShelfPage + TROPHY_SHELVES_PER_PAGE
                   )
-                  .map((shelf, shelfIndex) => {
-                    const absoluteShelfIndex = trophyShelfPage + shelfIndex;
-                    return (
-                      <div key={absoluteShelfIndex} className='mb-8 last:mb-0'>
-                        {/* Divider before every shelf except the first */}
-                        {absoluteShelfIndex > 0 && (
-                          <div className='bg-amber-800 h-4 rounded-lg mb-4 shadow-md'></div>
-                        )}
-                        <div className='grid grid-cols-2 gap-8 px-4'>
-                          {shelf.map((trophy, trophyIndex) => (
-                            <motion.div
-                              key={trophyIndex}
-                              whileHover={{ scale: 1.05, rotate: 2 }}
-                              className='bg-white rounded-lg p-4 shadow-lg hover:shadow-xl transition-all cursor-pointer'
-                            >
-                              <Dialog>
-                                <DialogTrigger asChild>
-                                  <img
-                                    src={trophy.image || '/placeholder.svg'}
-                                    alt={trophy.name}
-                                    className='w-full h-32 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-all'
-                                  />
-                                </DialogTrigger>
-                                <DialogContent className='p-0 max-w-5xl bg-transparent shadow-none border-none'>
-                                  <img
-                                    src={trophy.image || '/placeholder.svg'}
-                                    alt={trophy.name}
-                                    className='w-full h-auto object-contain rounded-lg'
-                                  />
-                                </DialogContent>
-                              </Dialog>
+                  .map((shelf, shelfIndex) => (
+                    <div
+                      key={trophyShelfPage + shelfIndex}
+                      className='mb-8 last:mb-0'
+                    >
+                      <div className='bg-amber-800 h-4 rounded-lg mb-4 shadow-md'></div>
+                      <div className='grid grid-cols-2 gap-8 px-4'>
+                        {shelf.map((trophy, trophyIndex) => (
+                          <motion.div
+                            key={trophyIndex}
+                            whileHover={{ scale: 1.05, rotate: 2 }}
+                            className='bg-white rounded-lg p-4 shadow-lg hover:shadow-xl transition-all cursor-pointer'
+                          >
+                            <Dialog>
+                              <DialogTrigger asChild>
+                                <img
+                                  src={trophy.image || '/placeholder.svg'}
+                                  alt={trophy.name}
+                                  className='w-full h-32 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-all'
+                                />
+                              </DialogTrigger>
+                              <DialogContent className='p-0 max-w-5xl bg-transparent shadow-none border-none'>
+                                <img
+                                  src={trophy.image || '/placeholder.svg'}
+                                  alt={trophy.name}
+                                  className='w-full h-auto object-contain rounded-lg'
+                                />
+                              </DialogContent>
+                            </Dialog>
 
-                              <p className='text-center text-sm font-medium text-slate-700 mt-2'>
-                                {trophy.name}
-                              </p>
-                            </motion.div>
-                          ))}
-                        </div>
+                            <p className='text-center text-sm font-medium text-slate-700 mt-2'>
+                              {trophy.name}
+                            </p>
+                          </motion.div>
+                        ))}
                       </div>
-                    );
-                  })}
+                    </div>
+                  ))}
               </div>
 
               {/* Down Arrow */}
