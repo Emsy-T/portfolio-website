@@ -99,6 +99,10 @@ export default function Portfolio() {
         name: 'DELF A1',
         image: '/DELF A1 Certificate.jpeg?height=150&width=200',
       },
+      {
+        name: 'GitHub Foundations',
+        image: '/GitHubFoundations_Cert.jpeg?height=150&width=200',
+      },
     ],
   ];
 
