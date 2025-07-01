@@ -101,10 +101,14 @@ export default function Portfolio() {
       },
       {
         name: 'GitHub Foundations',
-        image: '/GitHubFoundations_Cert.jpeg?height=150
-       {
-         name: 'GitHub Foundations',
-         image: '/GitHubFoundations_Cert.jpeg?height=150&width=200',     }new, things about various fields, from tech to business',
+        image: '/GitHubFoundations_Cert.jpeg?height=150&width=200',
+      },
+    ],
+  ];
+
+  const likes = [
+    'Building solutions for personal and global problems',
+    'Learning new things about various fields, from tech to business',
     'Exploring my other passions like composing music and designing',
     'Reading books',
     'Watching YouTube videos',
@@ -549,7 +553,7 @@ export default function Portfolio() {
                     const absoluteShelfIndex = trophyShelfPage + shelfIndex;
                     return (
                       <div key={absoluteShelfIndex} className='mb-8 last:mb-0'>
-                        {/* Divider before every shelf except the first */}
+                        {/* Only render divider before shelves after the first */}
                         {absoluteShelfIndex > 0 && (
                           <div className='bg-amber-800 h-4 rounded-lg mb-4 shadow-md'></div>
                         )}
@@ -757,4 +761,5 @@ export default function Portfolio() {
       </footer>
     </div>
   );
+}
 }
